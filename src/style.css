@@ -188,6 +188,34 @@ a {
   max-width: 720px;
 }
 
+.landing-actions {
+  margin-top: var(--space-3);
+}
+
+.settings {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.settings__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.settings__group--row {
+  flex-direction: row;
+  gap: var(--space-3);
+}
+
+@media (max-width: 720px) {
+  .settings__group--row {
+    flex-direction: column;
+  }
+}
+
 .context-header__title {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 32px;

@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Link, NavLink, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 import './style.css'
 
@@ -31,6 +31,162 @@ function PlaceholderPage({ title, subtitle }: PlaceholderPageProps) {
           </h1>
           <p className="context-header__subtitle">
             {subtitle ?? 'This section will be built in the next step.'}
+          </p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function LandingPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="landing-title">
+        <div className="context-header__text">
+          <h1 id="landing-title" className="context-header__title">
+            Stop Missing The Right Jobs.
+          </h1>
+          <p className="context-header__subtitle">
+            Precision-matched job discovery delivered daily at 9AM.
+          </p>
+          <div className="landing-actions">
+            <Link to="/settings" className="btn btn--primary">
+              Start Tracking
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function SettingsPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="settings-title">
+        <div className="context-header__text">
+          <h1 id="settings-title" className="context-header__title">
+            Notification preferences
+          </h1>
+          <p className="context-header__subtitle">
+            Define the kind of roles and locations you care about. This is a placeholder; nothing
+            will be saved yet.
+          </p>
+        </div>
+      </section>
+
+      <section className="settings">
+        <div className="settings__group">
+          <label className="field">
+            <span className="field__label">Role keywords</span>
+            <input
+              className="field__input"
+              placeholder="e.g. Frontend Engineer, Product Manager"
+            />
+            <span className="field__hint">Use keywords to describe the roles you want to hear about.</span>
+          </label>
+        </div>
+
+        <div className="settings__group">
+          <label className="field">
+            <span className="field__label">Preferred locations</span>
+            <input className="field__input" placeholder="e.g. Berlin, London, Remote Europe" />
+            <span className="field__hint">
+              List cities or regions. This is for layout only; changes are not persisted.
+            </span>
+          </label>
+        </div>
+
+        <div className="settings__group settings__group--row">
+          <label className="field">
+            <span className="field__label">Mode</span>
+            <select className="field__input">
+              <option>Remote</option>
+              <option>Hybrid</option>
+              <option>Onsite</option>
+            </select>
+            <span className="field__hint">Choose the working mode that best matches your search.</span>
+          </label>
+
+          <label className="field">
+            <span className="field__label">Experience level</span>
+            <select className="field__input">
+              <option>Entry</option>
+              <option>Mid</option>
+              <option>Senior</option>
+              <option>Lead</option>
+            </select>
+            <span className="field__hint">
+              This is a placeholder selector; it does not change any behavior yet.
+            </span>
+          </label>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function DashboardPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="dashboard-title">
+        <div className="context-header__text">
+          <h1 id="dashboard-title" className="context-header__title">
+            Dashboard
+          </h1>
+          <p className="context-header__subtitle">
+            No jobs yet. In the next step, you will load a realistic dataset.
+          </p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function SavedPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="saved-title">
+        <div className="context-header__text">
+          <h1 id="saved-title" className="context-header__title">
+            Saved jobs
+          </h1>
+          <p className="context-header__subtitle">
+            This space will hold roles you choose to keep close. For now, there is no data yet.
+          </p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function DigestPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="digest-title">
+        <div className="context-header__text">
+          <h1 id="digest-title" className="context-header__title">
+            Daily digest
+          </h1>
+          <p className="context-header__subtitle">
+            A premium daily summary of matching roles will appear here in a future step.
+          </p>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function ProofPage() {
+  return (
+    <main className="page">
+      <section className="context-header" aria-labelledby="proof-title">
+        <div className="context-header__text">
+          <h1 id="proof-title" className="context-header__title">
+            Proof of work
+          </h1>
+          <p className="context-header__subtitle">
+            Placeholder area for collecting artifacts, screenshots, and evidence of shipped changes.
           </p>
         </div>
       </section>
@@ -101,15 +257,12 @@ function AppShell() {
       </header>
 
       <Routes>
-        <Route
-          path="/"
-          element={<PlaceholderPage title="Welcome" subtitle="This section will be built in the next step." />}
-        />
-        <Route path="/dashboard" element={<PlaceholderPage title="Dashboard" />} />
-        <Route path="/saved" element={<PlaceholderPage title="Saved" />} />
-        <Route path="/digest" element={<PlaceholderPage title="Digest" />} />
-        <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
-        <Route path="/proof" element={<PlaceholderPage title="Proof" />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/saved" element={<SavedPage />} />
+        <Route path="/digest" element={<DigestPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/proof" element={<ProofPage />} />
         <Route
           path="*"
           element={
